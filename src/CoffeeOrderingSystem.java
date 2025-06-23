@@ -14,21 +14,17 @@ public class CoffeeOrderingSystem {
         byte choice = scanner.nextByte();
         int bill = 0;
 
-        if(choice == 1){
-            bill += 200;
-        } else if (choice == 2) {
-            bill += 250;
-        } else if (choice == 3) {
-            bill += 300;
-        } else {
-            System.out.println("Invalid Coffee choice.");
+        switch(choice) {
+            case 1: bill+=200; break;
+            case 2: bill+=250; break;
+            case 3: bill+=300; break;
+            default: System.out.println("Invalid Coffee choice"); break;
         }
-
         if(bill>0) {
             System.out.println("Add whipped cream for \u20B930 (yes=1 / no=0)");
             byte whippedchoice = scanner.nextByte();
 
-            if (whippedchoice == 1) {
+            if (whippedchoice== 1) {
                 bill += 30;
             }
 
@@ -37,10 +33,10 @@ public class CoffeeOrderingSystem {
             if (flavour == 1) {
                 System.out.println("Which One? Enter 1 for Vannila(\u20B920) & 2 for Hazelnut(\u20B925)");
                 byte flavourchoice = scanner.nextByte();
-                if (flavourchoice == 1) {
-                    bill += 20;
-                } else if (flavourchoice == 2) {
-                    bill += 25;
+                switch(flavourchoice) {
+                    case 1: bill+=20; break;
+                    case 2: bill+=25; break;
+                    default: System.out.println("Invalid Flavour Choice"); break;
                 }
             }
             System.out.println("Total bill: \u20B9" + bill);
